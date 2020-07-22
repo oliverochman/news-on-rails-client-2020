@@ -16,7 +16,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "cy:run": "BROWSER=none yarn start & cypress run",
-    "cy:open": "yarn start --silent & cypress open"
+    "cy:open": "cypress open & yarn start --silent"
   },
   "eslintConfig": {
     "extends": "react-app"
