@@ -1,0 +1,19 @@
+{
+  "articles":[
+    {
+      "id": 1,
+      "title": "Scrum Lord",
+      "lead": "Lord of all coharts"
+    },
+    {
+      "id": 2,
+      "title": "Happy Campers",
+      "lead": "Happy campers is always a winner"
+    },
+    {
+      "id": 3,
+      "title": "Bright Future",
+      "lead": "A good scrum lord will lead us to a bright future."
+    }
+  ]
+}
