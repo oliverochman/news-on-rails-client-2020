@@ -18,8 +18,10 @@ class Articles extends Component {
           <div id={`article-${article.id}`} key={article.id}>
             <h1 id="title">{article.title}</h1>
             <h2 id="lead">{article.lead}</h2>
+            <button id="button">Read more</button>
           </div>
         ))}
+         
       </div>
     );
   }
