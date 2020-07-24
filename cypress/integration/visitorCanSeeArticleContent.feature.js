@@ -21,7 +21,7 @@ describe('Vistors can see Article content', () => {
     cy.get('#article-1').within(() => {
       cy.get('#title').should('contain', "Scrum Lord")
       cy.get('#lead').should('contain', "Lord of all coharts")
-      cy.get('#content').should('contain', "There are fishy rumers about a guy taken the responsibility of leading all coharts due to his outstanding management skills!")
+      cy.get('#content').should('contain', "A Scrum Lord punishes his coharts and rule the day with terror.")
     })
     cy.get('#article-2').should("not.exist")
     cy.get('#article-3').should("not.exist")
