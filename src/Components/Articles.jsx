@@ -28,7 +28,7 @@ class Articles extends Component {
   render() {
     let articles;
     if (this.state.singleArticle) {
-      articles  = (
+      articles = (
         <ArticleContent
           article={this.state.singleArticle}
           singleArticle={true}
