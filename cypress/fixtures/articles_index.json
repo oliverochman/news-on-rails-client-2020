@@ -3,17 +3,20 @@
     {
       "id": 1,
       "title": "Scrum Lord",
-      "lead": "Lord of all coharts"
+      "lead": "Lord of all coharts",
+      "category": " economy "
     },
     {
       "id": 2,
       "title": "Happy Campers",
-      "lead": "Happy campers is always a winner"
+      "lead": "Happy campers is always a winner",
+      "category": "sports"
     },
     {
       "id": 3,
       "title": "Bright Future",
-      "lead": "A good scrum lord will lead us to a bright future."
+      "lead": "A good scrum lord will lead us to a bright future.",
+      "category": "lifestyle"
     }
   ]
 }
