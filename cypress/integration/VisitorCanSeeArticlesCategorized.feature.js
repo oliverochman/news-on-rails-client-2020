@@ -18,11 +18,7 @@ describe('Vistors can see Articles by Categories', () => {
     });
 
     cy.visit("/");
-    cy.get('button').should('contain', "lifestyle").click()
-    cy.visit("/lifestyle")
-    cy.get('#article-1').within(() => {
-      cy.get('button').should('contain', "Read more").click()
-    })
+
   });
 
   it("Visitors can see different categories", () => {
