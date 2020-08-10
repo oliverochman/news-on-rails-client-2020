@@ -15,21 +15,21 @@ class SportsPage extends Component {
     return (
       <div>
         <h1>Sports</h1>
-
-        {this.state.articleCategory.map(article => {
-          if (article.category === 'sports') {
-            return (
-              <div className='article-list'>
-                <h1 id="">{article.title}</h1>
-                <h2 id="">{article.lead}</h2>
-                <button id="button">Read more</button>
-              </div>
-            )
-          }
-        })}
+        <div className="category">
+          {this.state.articleCategory.map(article => {
+            if (article.category === 'sports') {
+              return (
+                <div className='article-list'>
+                  <h1 id="">{article.title}</h1>
+                  <h2 id="">{article.lead}</h2>
+                  <button id="button">Read more</button>
+                </div>
+              )
+            }
+          })}
+        </div>
       </div>
     )
-
   }
 }
 
