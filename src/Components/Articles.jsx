@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import ArticleContent from './ArticleContent'
+import CategoryHeader from './CategoryHeader'
 
 class Articles extends Component {
   state = {
@@ -48,8 +49,8 @@ class Articles extends Component {
     }
     return (
       <div>
+        <CategoryHeader />
         {articles}
-
       </div>
     );
   }
