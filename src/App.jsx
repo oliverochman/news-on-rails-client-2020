@@ -3,7 +3,7 @@ import Articles from "./Components/Articles";
 import EconomyPage from "./Components/Pages/EconomyPage";
 import SportsPage from "./Components/Pages/SportsPage";
 import LifestylePage from "./Components/Pages/LifestylePage";
-import { Route, Switch, BrowserRouter } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 class App extends Component {
   render() {

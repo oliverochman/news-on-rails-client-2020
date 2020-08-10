@@ -6,7 +6,7 @@ import CategoryHeader from './CategoryHeader'
 class Articles extends Component {
   state = {
     articles: [],
-    singleArticle: null
+    singleArticle: null,
   };
 
   componentDidMount = async () => {
@@ -19,6 +19,9 @@ class Articles extends Component {
     let response = await axios.get(`/articles/${id}`);
     this.setState({ singleArticle: response.data.article });
   };
+
+  
+
 
   closeSingleArticle = () => {
     this.setState({

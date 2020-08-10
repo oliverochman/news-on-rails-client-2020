@@ -25,7 +25,7 @@ describe('Vistors can see list of Articles', () => {
   });
 
   it("Visitors can see list article three", () => {
-    cy.get('#article-3').within(() => {
+    cy.get('#article-4').within(() => {
       cy.get('#title').should('contain', "Bright Future")
       cy.get('#lead').should('contain', "A good scrum lord will lead us to a bright future.")
       cy.get('button').should('contain', "Read more").click()

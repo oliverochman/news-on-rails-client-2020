@@ -1,5 +1,5 @@
 describe('Vistors can see Articles by Categories', () => {
-  before(() => {
+  beforeEach(() => {
     cy.server();
     cy.route({
       method: 'GET',
@@ -9,15 +9,27 @@ describe('Vistors can see Articles by Categories', () => {
     cy.visit("/");
   });
 
-  it("Visitors can see different categories", () => {
-    cy.get("#category-header");
+  it("Visitors can see economy categories", () => {
+    cy.get(".category-header");
     cy.get("#economy").click();
-    cy.get("#article-list").should("contain", "Bright Future");
-    cy.get("#article-list").should("contain", "Management economy");
-    cy.get("#article-list").should("contain", "Bankruptcy during Corona");
-    cy.get("#article-list").should("not.contain", "Scrum Lord");
-    cy.get("#article-list").should("not.contain", "Happy Campers");
+    cy.get(".article-list").should("contain", "Bright Future");
+    cy.get(".article-list").should("contain", "Management economy");
+    cy.get(".article-list").should("contain", "Bankruptcy during Corona");
+    cy.get(".article-list").should("not.contain", "Scrum Lord");
   });
 
+  it("Visitors can see lifestyle categories", () => {
+    cy.get(".category-header");
+    cy.get("#lifestyle").click();
+    cy.get(".article-list").should("contain", "Scrum Lord");
+    cy.get(".article-list").should("not.contain", "Bankruptcy during Corona");
+  });
+
+  it("Visitors can see sports categories", () => {
+    cy.get(".category-header");
+    cy.get("#sports").click();
+    cy.get(".article-list").should("contain", "Happy Campers");
+    cy.get(".article-list").should("not.contain", "Bankruptcy during Corona");
+  });
 
 })
