@@ -25,6 +25,8 @@ class SportsPage extends Component {
                   <button id="button">Read more</button>
                 </div>
               )
+            } else {
+              return 'Unable to show categories'
             }
           })}
         </div>

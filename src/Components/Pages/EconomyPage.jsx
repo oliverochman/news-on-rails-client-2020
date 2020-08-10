@@ -15,7 +15,7 @@ class EconomyPage extends Component {
     return (
       <div>
         <h1>Economy</h1>
-        {this.state.articleCategory.map(article => {
+        {this.state.articleCategory.map(article =>{
           if (article.category === 'economy') {
             return (
               <div className='article-list'>
@@ -24,6 +24,8 @@ class EconomyPage extends Component {
                 <button id="button">Read more</button>
               </div>
             )
+          } else {
+            return 'Unable to show categories'
           }
         })}
       </div>
