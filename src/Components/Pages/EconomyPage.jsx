@@ -25,7 +25,7 @@ class EconomyPage extends Component {
               </div>
             )
           } else {
-            return 'Unable to show categories'
+            return 'Unable to show articles'
           }
         })}
       </div>
