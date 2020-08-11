@@ -1,0 +1,10 @@
+{
+  "articles": [
+    {
+      "id": 2,
+      "title": "Happy Campers",
+      "lead": "Happy campers is always a winner",
+      "category": "sports"
+    }
+  ]
+}
