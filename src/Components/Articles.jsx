@@ -5,13 +5,33 @@ import ArticleContent from './ArticleContent'
 class Articles extends Component {
   state = {
     articles: [],
-    singleArticle: null
+    singleArticle: null,
   };
 
-  componentDidMount = async () => {
-    let response = await axios.get(`/articles`);
-    this.setState({ articles: response.data.articles });
+  componentDidUpdate = (prevProps) => {
+    if (this.props.history.location.pathname !== prevProps.location.pathname) {
+      this.setState({ singleArticle: null })
+      this.getArticles()
+    }
+  }
+
+  componentDidMount = () => {
+    this.getArticles()
   };
+
+  getArticles = async () => {
+    let response
+    if (this.props.history.location.pathname === "/") {
+      response = await axios.get(`/articles`);
+    } else {
+      response = await axios.get(`/articles`,
+        {
+          params: this.props.match.params
+        }
+      );
+    }
+    this.setState({ articles: response.data.articles });
+  }
 
   getSingleArticle = async (event) => {
     let id = event.target.parentElement.dataset.id;
@@ -49,7 +69,6 @@ class Articles extends Component {
     return (
       <div>
         {articles}
-
       </div>
     );
   }
