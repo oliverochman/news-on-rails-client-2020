@@ -1,20 +1,18 @@
 import React, { Component } from "react";
 import Articles from "./Components/Articles";
-import EconomyPage from "./Components/Pages/EconomyPage";
-import SportsPage from "./Components/Pages/SportsPage";
-import LifestylePage from "./Components/Pages/LifestylePage";
 import { Route, Switch } from "react-router-dom";
+import CategoryHeader from './Components/CategoryHeader'
+
 
 class App extends Component {
   render() {
     return (
       <>
         <div>
+          <CategoryHeader />
           <Switch>
             <Route exact path="/" component={Articles}></Route>
-            <Route exact path="/economy" component={EconomyPage}></Route>
-            <Route exact path="/sports" component={SportsPage}></Route>
-            <Route exact path="/lifestyle" component={LifestylePage}></Route>
+            <Route exact path="/articles/:category" component={Articles}></Route>
           </Switch>
         </div>
       </>

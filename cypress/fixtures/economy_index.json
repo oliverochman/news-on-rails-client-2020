@@ -1,0 +1,22 @@
+{
+  "articles":[
+    {
+      "id": 3,
+      "title": "Bankruptcy during Corona",
+      "lead": "A good scrum lord will lead us to a bright future.",
+      "category": "economy"
+    },
+    {
+      "id": 4,
+      "title": "Bright Future",
+      "lead": "A good scrum lord will lead us to a bright future.",
+      "category": "economy"
+    },
+    {
+      "id": 5,
+      "title": "Management economy",
+      "lead": "A good scrum lord will lead us to a bright future.",
+      "category": "economy"
+    }
+  ]
+}
