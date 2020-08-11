@@ -30,7 +30,6 @@ class Articles extends Component {
         }
       );
     }
-    console.log(response)
     this.setState({ articles: response.data.articles });
   }
 
