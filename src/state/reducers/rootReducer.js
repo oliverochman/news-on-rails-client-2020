@@ -10,11 +10,18 @@ const rootReducer = (state = initialState, action) => {
         renderLoginForm: false,
       };
 
+    case "FAIL_AUTHENTICATE":
+      return {
+        ...state,
+        errorMessage: action.payload.errorMessage,
+        renderLoginForm: true,
+      };
+
     case "LOGIN_FORM_VISIBILITY":
       return {
         ...state,
-        ...action.payload
-      }
+        ...action.payload,
+      };
 
     default:
       return state;

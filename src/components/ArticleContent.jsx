@@ -18,7 +18,7 @@ const ArticleContent = (props) => {
         </>
       );
     } else {
-      articleContent = <p>You need to become a subscriber to read this article</p>;
+      articleContent = <p id='become-sub-message'>You need to become a subscriber to read this article</p>;
     }
   } else {
     articleContent = <p id="content">{props.article.content}</p>;
