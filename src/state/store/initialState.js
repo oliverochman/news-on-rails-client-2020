@@ -1,5 +1,7 @@
+import { NavLink } from "react-router-dom";
+
 const initialState = {
-  currentUser: {},
+  currentUser: {email: undefined, role: undefined},
   authenticated: false,
   renderLoginForm: false,
 }

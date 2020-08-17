@@ -3,6 +3,27 @@ import LoginButton from "./LoginButton";
 import { connect } from "react-redux";
 
 const ArticleContent = (props) => {
+  let isCurrentUserSubscriber = props.userRole == "subscriber" ? true : false;
+  let isUserAuthenticated = props.authenticated;
+  let isArticlePremium = props.article.premium;
+
+  let articleContent;
+
+  if (isArticlePremium && isCurrentUserSubscriber == false) {
+    if (isUserAuthenticated == false) {
+      articleContent = (
+        <>
+          <p>You need to log in to read this article</p>
+          <LoginButton />
+        </>
+      );
+    } else {
+      articleContent = <p>You need to become a subscriber to read this article</p>;
+    }
+  } else {
+    articleContent = <p id="content">{props.article.content}</p>;
+  }
+
   return (
     <div className="article-list">
       <div id={`article-${props.article.id}`} data-id={props.article.id}>
@@ -10,12 +31,9 @@ const ArticleContent = (props) => {
         <h2 id="lead">{props.article.lead}</h2>
         {props.singleArticle ? (
           <>
-            <p id="content">{props.article.content}</p>
-            <button id="button" onClick={props.closeSingleArticle}>
-              Close article
-            </button>
-            {props.authenticated === false && <LoginButton />}
-          </>
+          {articleContent}
+           <button id="button" onClick={props.closeSingleArticle}>Close article</button>
+           </>
         ) : (
           <button id="button" onClick={props.getSingleArticle}>
             Read more
@@ -29,6 +47,7 @@ const ArticleContent = (props) => {
 const mapStateToProps = (state) => {
   return {
     authenticated: state.authenticated,
+    userRole: state.currentUser.role,
   };
 };
 
