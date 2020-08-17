@@ -4,31 +4,36 @@
       "id": 1,
       "title": "Scrum Lord",
       "lead": "Lord of all coharts",
-      "category": "lifestyle"
+      "category": "lifestyle",
+      "premium": true
     },
     {
       "id": 2,
       "title": "Happy Campers",
       "lead": "Happy campers is always a winner",
-      "category": "sports"
+      "category": "sports",
+      "premium": false
     },
     {
       "id": 3,
       "title": "Bankruptcy during Corona",
       "lead": "A good scrum lord will lead us to a bright future.",
-      "category": "economy"
+      "category": "economy",
+      "premium": false
     },
     {
       "id": 4,
       "title": "Bright Future",
       "lead": "A good scrum lord will lead us to a bright future.",
-      "category": "economy"
+      "category": "economy",
+      "premium": true
     },
     {
       "id": 5,
       "title": "Management economy",
       "lead": "A good scrum lord will lead us to a bright future.",
-      "category": "economy"
+      "category": "economy",
+      "premium": true
     }
   ]
 }
