@@ -2,17 +2,6 @@ describe("subscriber can login", () => {
   context("successfully", () => {
     before(() => {
       cy.server();
-      cy.route({
-        method: "POST",
-        url: "http://localhost:3000/api/v1/auth/sign_in",
-        response: "fixture:login_response.json",
-      });
-
-      cy.route({
-        method: "GET",
-        url: "http://localhost:3000/api/v1/auth/**",
-        response: "fixture:login_response.json",
-      })
 
       cy.route({
         method: "GET",
@@ -25,6 +14,19 @@ describe("subscriber can login", () => {
         url: "http://localhost:3000/api/v1/articles/1",
         response: "fixture:article_show.json",
       });
+
+      cy.route({
+        method: "POST",
+        url: "http://localhost:3000/api/v1/auth/**",
+        response: "fixture:login_response.json",
+      });
+
+      cy.route({
+        method: "GET",
+        url: "http://localhost:3000/api/v1/auth/**",
+        response: "fixture:login_response.json",
+      })
+
       cy.visit("/");
     });
     it("subscriber can not see article content before login", () => {

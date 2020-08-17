@@ -10,7 +10,6 @@ const rootReducer = (state = initialState, action) => {
       };
 
     case "LOGIN_FORM_VISIBILITY":
-      debugger
       return {
         ...state,
         ...action.payload

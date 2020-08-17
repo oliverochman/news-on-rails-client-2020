@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 const LoginButton = (props) => {
 
     const clickHandler = () => {
-        debugger
         props.dispatch({
           type: "LOGIN_FORM_VISIBILITY",
           payload: {renderLoginForm: true},
