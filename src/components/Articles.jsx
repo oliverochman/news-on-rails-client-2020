@@ -34,6 +34,7 @@ class Articles extends Component {
   }
 
   getSingleArticle = async (event) => {
+    //whether the user login or not 
     let id = event.target.parentElement.dataset.id;
     let response = await axios.get(`/articles/${id}`);
     this.setState({ singleArticle: response.data.article });

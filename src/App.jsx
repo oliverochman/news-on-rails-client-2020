@@ -7,6 +7,7 @@ import LoginForm from "./components/LoginForm";
 
 class App extends Component {
   clickHandler = () => {
+    debugger
     this.props.dispatch({
       type: "LOGIN_FORM_VISIBILITY",
       payload: true,
@@ -21,7 +22,7 @@ class App extends Component {
           <Route exact path="/" component={Articles}></Route>
           <Route exact path="/articles/:category" component={Articles}></Route>
         </Switch>
-        <button onClick={this.clickHandler}>Log-In</button>
+        <button onClick={this.clickHandler}>Login</button>
       </>
     );
   }
