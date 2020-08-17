@@ -1,34 +1,27 @@
 import React, { Component } from "react";
-import Articles from "./Components/Articles";
+import { connect } from "react-redux";
 import { Route, Switch } from "react-router-dom";
-import CategoryHeader from './Components/CategoryHeader';
-import LoginForm from './Components/LoginForm'
-import { connect } from 'react-redux'
+import Articles from "./components/Articles";
+import CategoryHeader from "./components/CategoryHeader";
+import LoginForm from "./components/LoginForm";
 
 class App extends Component {
-
   clickHandler = () => {
-   this.props.dispatch({ 
-     type: "LOGIN-FORM", 
-     payload: 
+    this.props.dispatch({
+      type: "LOGIN_FORM_VISIBILITY",
+      payload: true,
+    });
+  };
 
-     <LoginForm /> 
-  })
-  }
-  
   render() {
     return (
       <>
-        <div>
-          <CategoryHeader />
-          <Switch>
-            <Route exact path="/" component={Articles}></Route>
-            <Route exact path="/articles/:category" component={Articles}></Route>
-          </Switch>
-        </div>
-        <div>
-          <button onClick={this.clickHandler}>Log-In</button>
-        </div>
+        <CategoryHeader />
+        <Switch>
+          <Route exact path="/" component={Articles}></Route>
+          <Route exact path="/articles/:category" component={Articles}></Route>
+        </Switch>
+        <button onClick={this.clickHandler}>Log-In</button>
       </>
     );
   }
