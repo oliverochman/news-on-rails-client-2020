@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import ArticleContent from './ArticleContent'
-
+import ArticleContent from "./ArticleContent";
 
 class Articles extends Component {
   state = {
@@ -11,31 +10,29 @@ class Articles extends Component {
 
   componentDidUpdate = (prevProps) => {
     if (this.props.history.location.pathname !== prevProps.location.pathname) {
-      this.setState({ singleArticle: null })
-      this.getArticles()
+      this.setState({ singleArticle: null });
+      this.getArticles();
     }
-  }
+  };
 
   componentDidMount = () => {
-    this.getArticles()
+    this.getArticles();
   };
 
   getArticles = async () => {
-    let response
+    let response;
     if (this.props.history.location.pathname === "/") {
       response = await axios.get(`/articles`);
     } else {
-      response = await axios.get(`/articles`,
-        {
-          params: this.props.match.params
-        }
-      );
+      response = await axios.get(`/articles`, {
+        params: this.props.match.params,
+      });
     }
     this.setState({ articles: response.data.articles });
-  }
+  };
 
   getSingleArticle = async (event) => {
-    //whether the user login or not 
+    //whether the user login or not
     let id = event.target.parentElement.dataset.id;
     let response = await axios.get(`/articles/${id}`);
     this.setState({ singleArticle: response.data.article });
@@ -43,9 +40,9 @@ class Articles extends Component {
 
   closeSingleArticle = () => {
     this.setState({
-      singleArticle: null
-    })
-  }
+      singleArticle: null,
+    });
+  };
 
   render() {
     let articles;
@@ -56,23 +53,17 @@ class Articles extends Component {
           singleArticle={true}
           closeSingleArticle={this.closeSingleArticle}
         />
-      )
+      );
     } else {
-      articles = (
-        this.state.articles.map((article) => (
-          <ArticleContent
-            article={article}
-            singleArticle={false}
-            getSingleArticle={this.getSingleArticle}
-          />
-        ))
-      )
+      articles = this.state.articles.map((article) => (
+        <ArticleContent
+          article={article}
+          singleArticle={false}
+          getSingleArticle={this.getSingleArticle}
+        />
+      ));
     }
-    return (
-      <div>
-        {articles}
-      </div>
-    );
+    return <div>{articles}</div>;
   }
 }
 export default Articles;

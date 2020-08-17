@@ -18,7 +18,11 @@ const ArticleContent = (props) => {
         </>
       );
     } else {
-      articleContent = <p id='become-sub-message'>You need to become a subscriber to read this article</p>;
+      articleContent = (
+        <p id="become-sub-message">
+          You need to become a subscriber to read this article
+        </p>
+      );
     }
   } else {
     articleContent = <p id="content">{props.article.content}</p>;
@@ -31,9 +35,11 @@ const ArticleContent = (props) => {
         <h2 id="lead">{props.article.lead}</h2>
         {props.singleArticle ? (
           <>
-          {articleContent}
-           <button id="button" onClick={props.closeSingleArticle}>Close article</button>
-           </>
+            {articleContent}
+            <button id="button" onClick={props.closeSingleArticle}>
+              Close article
+            </button>
+          </>
         ) : (
           <button id="button" onClick={props.getSingleArticle}>
             Read more

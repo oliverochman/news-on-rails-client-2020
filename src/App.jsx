@@ -13,12 +13,12 @@ const App = (props) => {
         <Route exact path="/" component={Articles}></Route>
         <Route exact path="/articles/:category" component={Articles}></Route>
       </Switch>
-      {props.renderLoginForm  && <LoginForm />}
+      {props.renderLoginForm && <LoginForm />}
     </>
   );
 };
 const mapStateToProps = (state) => {
-  return { renderLoginForm: state.renderLoginForm }
-}
+  return { renderLoginForm: state.renderLoginForm };
+};
 
 export default connect(mapStateToProps)(App);
