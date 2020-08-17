@@ -8,8 +8,8 @@ describe('Vistors can see Article content', () => {
     });
     cy.route({
       method: 'GET',
-      url: 'http://localhost:3000/api/v1/articles/1',
-      response: "fixture:article_show.json",
+      url: 'http://localhost:3000/api/v1/articles/2',
+      response: "fixture:free_article_show.json",
     })
     cy.visit("/");
     cy.get('#article-1').within(() => {
