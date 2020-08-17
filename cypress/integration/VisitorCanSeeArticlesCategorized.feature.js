@@ -1,4 +1,4 @@
-describe('Vistors can see Articles by Categories', () => {
+describe('Vistors can see Articles by Categories',() => {
   beforeEach(() => {
     cy.server();
     cy.route({

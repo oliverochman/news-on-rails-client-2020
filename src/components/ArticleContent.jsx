@@ -3,14 +3,14 @@ import LoginButton from "./LoginButton";
 import { connect } from "react-redux";
 
 const ArticleContent = (props) => {
-  let isCurrentUserSubscriber = props.userRole == "subscriber" ? true : false;
+  let isCurrentUserSubscriber = props.userRole === "subscriber" ? true : false;
   let isUserAuthenticated = props.authenticated;
   let isArticlePremium = props.article.premium;
 
   let articleContent;
 
-  if (isArticlePremium && isCurrentUserSubscriber == false) {
-    if (isUserAuthenticated == false) {
+  if (isArticlePremium && isCurrentUserSubscriber === false) {
+    if (isUserAuthenticated === false) {
       articleContent = (
         <>
           <p>You need to log in to read this article</p>
