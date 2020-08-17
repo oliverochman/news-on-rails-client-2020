@@ -1,6 +1,6 @@
-import React from 'react'
-import LoginButton from './LoginButton'
-
+import React from "react";
+import LoginButton from "./LoginButton";
+import { connect } from "react-redux";
 
 const ArticleContent = (props) => {
   return (
@@ -11,15 +11,25 @@ const ArticleContent = (props) => {
         {props.singleArticle ? (
           <>
             <p id="content">{props.article.content}</p>
-            <button id="button" onClick={props.closeSingleArticle}>Close article</button>
-            <LoginButton />
+            <button id="button" onClick={props.closeSingleArticle}>
+              Close article
+            </button>
+            {props.authenticated === false && <LoginButton />}
           </>
         ) : (
-            <button id="button" onClick={props.getSingleArticle}>Read more</button>
-          )}
+          <button id="button" onClick={props.getSingleArticle}>
+            Read more
+          </button>
+        )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ArticleContent
+const mapStateToProps = (state) => {
+  return {
+    authenticated: state.authenticated,
+  };
+};
+
+export default connect(mapStateToProps)(ArticleContent);

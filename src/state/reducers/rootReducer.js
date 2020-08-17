@@ -7,6 +7,7 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         authenticated: true,
         currentUser: action.payload.currentUser,
+        renderLoginForm: false,
       };
 
     case "LOGIN_FORM_VISIBILITY":
