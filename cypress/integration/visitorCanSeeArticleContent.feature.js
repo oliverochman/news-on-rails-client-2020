@@ -12,20 +12,20 @@ describe("Vistors can see Article content", () => {
       response: "fixture:free_article_show.json",
     });
     cy.visit("/");
-    cy.get("#article-1").within(() => {
+    cy.get("#article-2").within(() => {
       cy.get("button").should("contain", "Read more").click();
     });
   });
   it("displays the content of the article", () => {
-    cy.get("#article-1").within(() => {
-      cy.get("#title").should("contain", "Scrum Lord");
-      cy.get("#lead").should("contain", "Lord of all coharts");
+    cy.get("#article-2").within(() => {
+      cy.get("#title").should("contain", "Happy Campers");
+      cy.get("#lead").should("contain", "Happy campers is always a winner");
       cy.get("#content").should(
         "contain",
-        "A Scrum Lord punishes his coharts and rule the day with terror."
+        "Happy campers sounds awesome and this is the content"
       );
     });
-    cy.get("#article-2").should("not.exist");
+    cy.get("#article-1").should("not.exist");
     cy.get("#article-3").should("not.exist");
   });
 });
