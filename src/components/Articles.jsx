@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import ArticleContent from './ArticleContent'
 
+
 class Articles extends Component {
   state = {
     articles: [],

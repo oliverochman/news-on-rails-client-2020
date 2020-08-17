@@ -1,4 +1,6 @@
 import React from 'react'
+import LoginButton from './LoginButton'
+
 
 const ArticleContent = (props) => {
   return (
@@ -10,6 +12,7 @@ const ArticleContent = (props) => {
           <>
             <p id="content">{props.article.content}</p>
             <button id="button" onClick={props.closeSingleArticle}>Close article</button>
+            <LoginButton />
           </>
         ) : (
             <button id="button" onClick={props.getSingleArticle}>Read more</button>

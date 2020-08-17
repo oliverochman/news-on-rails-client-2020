@@ -1,6 +1,7 @@
 const initialState = {
   currentUser: {},
-  authenticated: false
+  authenticated: false,
+  renderLoginForm: false,
 }
 
 export default initialState;

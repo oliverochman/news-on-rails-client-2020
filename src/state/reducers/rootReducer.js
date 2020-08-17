@@ -9,7 +9,8 @@ const rootReducer = (state = initialState, action) => {
         currentUser: action.payload.currentUser,
       };
 
-    case "LOGIN-FORM":
+    case "LOGIN_FORM_VISIBILITY":
+      debugger
       return {
         ...state,
         ...action.payload

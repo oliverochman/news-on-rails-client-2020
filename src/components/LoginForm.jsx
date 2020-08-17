@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Form, Grid, Segment } from 'semantic-ui-react'
+import { connect } from "react-redux";
 
 const LoginForm = (props) => {
   return (
@@ -31,4 +32,4 @@ const LoginForm = (props) => {
   );
 };
 
-export default LoginForm;
+export default connect()(LoginForm);
