@@ -17,7 +17,7 @@ const CategoryHeader = () => {
       <NavLink id="sports" to="/articles/sports">
         Sports
       </NavLink>
-      <LoginButton />
+      <LoginButton id="header-login" />
     </div>
   );
 };

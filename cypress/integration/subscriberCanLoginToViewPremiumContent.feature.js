@@ -44,16 +44,16 @@ describe("subscriber can", () => {
         "contain",
         "Happy campers sounds awesome and this is the content"
       );
-      cy.get("button#login").should("not.exist");
+      cy.get("#login").should("not.exist");
     });
 
     it("log in to read premium article", () => {
       cy.get("#article-1").within(() => {
         cy.get("button").should("contain", "Read more").click();
       });
-      cy.get("button#login").should("be.visible");
+      cy.get("#login").should("be.visible");
       cy.get("#content").should("not.exist");
-      cy.get("button#login").click();
+      cy.get("#login").click();
       cy.get("#login-form").within(() => {
         cy.get("#email").type("subscriber@mail.com");
         cy.get("#password").type("password");
@@ -107,9 +107,9 @@ describe("subscriber can", () => {
       cy.get("#article-1").within(() => {
         cy.get("button").should("contain", "Read more").click();
       });
-      cy.get("button#login").should("be.visible");
+      cy.get("#login").should("be.visible");
       cy.get("#content").should("not.exist");
-      cy.get("button#login").click();
+      cy.get("#login").click();
       cy.get("#login-form").within(() => {
         cy.get("#email").type("subscriber@mail.com");
         cy.get("#password").type("wrongpassword");
@@ -168,16 +168,16 @@ describe("registered user can", () => {
       "contain",
       "Happy campers sounds awesome and this is the content"
     );
-    cy.get("button#login").should("not.exist");
+    cy.get("#login").should("not.exist");
   });
 
   it("see message about becoming subscriber", () => {
     cy.get("#article-1").within(() => {
       cy.get("button").should("contain", "Read more").click();
     });
-    cy.get("button#login").should("be.visible");
+    cy.get("#login").should("be.visible");
     cy.get("#content").should("not.exist");
-    cy.get("button#login").click();
+    cy.get("#login").click();
     cy.get("#login-form").within(() => {
       cy.get("#email").type("subscriber@mail.com");
       cy.get("#password").type("password");

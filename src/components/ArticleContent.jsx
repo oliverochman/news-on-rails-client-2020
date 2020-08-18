@@ -14,7 +14,7 @@ const ArticleContent = (props) => {
       articleContent = (
         <>
           <p>You need to log in to read this article</p>
-          <LoginButton />
+          <LoginButton id="login" />
         </>
       );
     } else {

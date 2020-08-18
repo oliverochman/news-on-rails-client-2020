@@ -9,13 +9,7 @@ const LoginButton = (props) => {
     });
   };
 
-  return (
-    <div>
-      <button id="login" onClick={clickHandler}>
-        Login
-      </button>
-    </div>
-  );
+  return <button id={props.id} onClick={clickHandler}>Login</button>;
 };
 
 export default connect()(LoginButton);
