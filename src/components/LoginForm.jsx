@@ -18,10 +18,11 @@ const LoginForm = (props) => {
         },
       });
     } catch (error) {
+      debugger
       props.dispatch({
         type: "FAIL_AUTHENTICATE",
         payload: {
-          errorMessage: "Invalid login credentials. Please try again.",
+          errorMessage: error.response.data.errors[0],
         },
       });
     }

@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
+import LoginButton from "./LoginButton";
 
 const CategoryHeader = () => {
   return (
@@ -16,6 +17,7 @@ const CategoryHeader = () => {
       <NavLink id="sports" to="/articles/sports">
         Sports
       </NavLink>
+      <LoginButton />
     </div>
   );
 };

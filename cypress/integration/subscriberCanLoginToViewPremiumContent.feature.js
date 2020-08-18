@@ -34,6 +34,7 @@ describe("subscriber can", () => {
 
       cy.visit("/");
     });
+
     it("read none premium article", () => {
       cy.get("#article-2").within(() => {
         cy.get("button").should("contain", "Read more").click();
@@ -88,17 +89,20 @@ describe("subscriber can", () => {
       cy.route({
         method: "POST",
         url: "http://localhost:3000/api/v1/auth/sign_in",
-        response: { message: "Invalid login credentials. Please try again." },
+        response: "fixture:invalid_login.json",
+        status: 401,
       });
 
       cy.route({
         method: "GET",
         url: "http://localhost:3000/api/v1/auth/**",
-        response: { message: "Invalid login credentials. Please try again." },
+        response: "fixture:invalid_login.json",
+        status: 401,
       });
 
       cy.visit("/");
     });
+
     it("with invalid crendentials", () => {
       cy.get("#article-1").within(() => {
         cy.get("button").should("contain", "Read more").click();
