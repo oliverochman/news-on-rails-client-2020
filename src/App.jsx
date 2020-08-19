@@ -4,11 +4,16 @@ import { Route, Switch } from "react-router-dom";
 import Articles from "./components/Articles";
 import CategoryHeader from "./components/CategoryHeader";
 import LoginForm from "./components/LoginForm";
+import { Header, Icon } from "semantic-ui-react";
 
 const App = (props) => {
   return (
     <>
       <Suspense fallback={<div>Loading...</div>}>
+        <Header as="h1" icon textAlign="center">
+          <Icon name="train" circular />
+          News on Rails
+        </Header>
         <CategoryHeader />
         <Switch>
           <Route exact path="/" component={Articles}></Route>

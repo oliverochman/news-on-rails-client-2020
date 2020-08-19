@@ -11,3 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.ui.header {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+
