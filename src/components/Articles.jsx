@@ -39,7 +39,7 @@ const Articles = (props) => {
         }
       });
 
-      setCountry(response.data.country)
+      setCountry(response.data.articles[0].country)
 
     } else {
       response = await axios.get(`/articles`, {
