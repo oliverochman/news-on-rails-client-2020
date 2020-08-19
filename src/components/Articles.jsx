@@ -1,6 +1,6 @@
 import axios from "axios";
 import ArticleContent from "./ArticleContent";
-import React, { useRef, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 
 const Articles = (props) => {

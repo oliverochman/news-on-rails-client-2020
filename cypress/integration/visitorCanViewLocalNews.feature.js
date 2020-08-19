@@ -13,7 +13,7 @@ describe("visitors can veiw articles ", () => {
         latitude: 60, 
         longitude: 18,
       }));
-      cy.get("#local").click()
+      cy.get('[href="/articles/local"]').click()
     })
    
     it('Visitors can see which different version of local news', () => {
