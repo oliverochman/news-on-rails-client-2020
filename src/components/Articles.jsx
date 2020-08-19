@@ -38,8 +38,8 @@ const Articles = (props) => {
           longitude: currentPosition.longitude
         }
       });
-
-      setCountry(response.data.country)
+  
+      setCountry(response.data.articles[0].location)
 
     } else {
       response = await axios.get(`/articles`, {
