@@ -22,9 +22,11 @@ const Articles = (props) => {
 
   const getArticles = async () => {
     let response;
+    let currentPosition 
     if (props.history.location.pathname === "/") {
       response = await axios.get(`/articles`);
     } else if (pathName === 'local') {
+      currentPosition = location || {latitude: 60, longitude: 18}
       response = await axios.get(`/articles`, {
         params: {
           location: location
