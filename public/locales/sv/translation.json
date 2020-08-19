@@ -6,5 +6,8 @@
   "lifestyle-tab": "Livsstil",
   "local-tab": "Lokala",
   "sports-tab": "Sport",
-  "language-tab": "Språk"
+  "language-tab": "Språk",
+  "email-field": "Epost",
+  "password-field": "Lösenord",
+  "login-button": "Logga in"
 }

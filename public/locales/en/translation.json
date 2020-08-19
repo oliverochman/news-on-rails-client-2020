@@ -6,5 +6,9 @@
   "lifestyle-tab": "Lifestyle",
   "local-tab": "Local",
   "sports-tab": "Sports",
-  "language-tab": "Language"
+  "language-tab": "Language",
+  "email-field": "Email",
+  "password-field": "Password",
+  "login-button": "Login"
+
 }

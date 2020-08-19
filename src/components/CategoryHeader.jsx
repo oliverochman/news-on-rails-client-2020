@@ -18,69 +18,69 @@ const CategoryHeader = () => {
         name="home"
         active={activeItem === "home"}
         onClick={handleTabClick}
+        as={Link}
+        to={{ pathname: "/" }}
       >
-        <Link id="header" className="header item" to="/">
-          {t("home-tab")}
-        </Link>
+        {t("home-tab")}
       </Menu.Item>
       <Menu.Item
         name="culture"
         active={activeItem === "culture"}
         onClick={handleTabClick}
+        as={Link}
+        to={{ pathname: "/articles/culture" }}
       >
-        <NavLink id="culture" to="/articles/culture">
-          {t("culture-tab")}
-        </NavLink>
+        {t("culture-tab")}
       </Menu.Item>
       <Menu.Item
         name="economy"
         active={activeItem === "economy"}
         onClick={handleTabClick}
+        as={Link}
+        to={{ pathname: "/articles/economy" }}
       >
-        <NavLink id="economy" to="/articles/economy">
-          {t("economy-tab")}
-        </NavLink>
+        {t("economy-tab")}
       </Menu.Item>
       <Menu.Item
         name="international"
         active={activeItem === "international"}
         onClick={handleTabClick}
+        as={Link}
+        to={{ pathname: "/articles/international" }}
       >
-        <NavLink id="international" to="/articles/international">
-          {t("international-tab")}
-        </NavLink>
+        {t("international-tab")}
       </Menu.Item>
       <Menu.Item
         name="lifestyle"
         active={activeItem === "lifestyle"}
         onClick={handleTabClick}
+        as={Link}
+        to={{ pathname: "/articles/lifestyle" }}
       >
-        <NavLink id="lifestyle" to="/articles/lifestyle">
-          {t("lifestyle-tab")}
-        </NavLink>
+        {t("lifestyle-tab")}
       </Menu.Item>
       <Menu.Item
         name="local"
         active={activeItem === "local"}
         onClick={handleTabClick}
+        as={Link}
+        to={{ pathname: "/articles/local" }}
       >
-        <NavLink id="local" to="/articles/local">
-          {t("local-tab")}
-        </NavLink>
+        {t("local-tab")}
       </Menu.Item>
       <Menu.Item
         name="sports"
         active={activeItem === "sports"}
         onClick={handleTabClick}
+        as={Link}
+        to={{ pathname: "/articles/sports" }}
       >
-        <NavLink id="sports" to="/articles/sports">
-          {t("sports-tab")}
-        </NavLink>
+        {t("sports-tab")}
       </Menu.Item>
       <Menu.Item>
         <LoginButton id="header-login" />
       </Menu.Item>
-      <Dropdown item text={t("language-tab")}>
+      <Dropdown id="change-language" item text={t("language-tab")}>
         <Dropdown.Menu>
           <Dropdown.Item
             onClick={() => {

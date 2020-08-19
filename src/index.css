@@ -18,3 +18,9 @@ code {
   padding-bottom: 30px;
 }
 
+.ui.placeholder.segment {
+  position: absolute;
+  left: 35%;
+  right: 35%;
+}
+
