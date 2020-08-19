@@ -1,5 +1,5 @@
-import React from "./node_modules/react";
-import { connect } from "./node_modules/react-redux";
+import React from "react";
+import { connect } from "react-redux";
 
 const LoginButton = (props) => {
   const clickHandler = () => {

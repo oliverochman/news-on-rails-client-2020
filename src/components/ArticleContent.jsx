@@ -1,6 +1,6 @@
-import React from "./node_modules/react";
+import React from "react";
 import LoginButton from "./LoginButton";
-import { connect } from "./node_modules/react-redux";
+import { connect } from "react-redux";
 
 const ArticleContent = (props) => {
   let isCurrentUserSubscriber = props.userRole === "subscriber" ? true : false;
