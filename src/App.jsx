@@ -4,6 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import Articles from "./components/Articles";
 import CategoryHeader from "./components/CategoryHeader";
 import LoginForm from "./components/LoginForm";
+import GeoLocation from "./components/GeoLocation"
 
 const App = (props) => {
   return (
@@ -14,6 +15,7 @@ const App = (props) => {
         <Route exact path="/articles/:category" component={Articles}></Route>
       </Switch>
       {props.renderLoginForm && <LoginForm />}
+      <GeoLocation />
     </>
   );
 };

@@ -23,6 +23,12 @@ const rootReducer = (state = initialState, action) => {
         ...action.payload,
       };
 
+    case "SET_LOCATION":
+      return {
+        ...state,
+        location: action.payload
+      }
+
     default:
       return state;
   }
