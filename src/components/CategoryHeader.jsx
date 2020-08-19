@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import LoginButton from "./LoginButton";
 import { useTranslation } from "react-i18next";
 import i18n from "i18next";
