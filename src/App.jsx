@@ -12,7 +12,7 @@ const App = (props) => {
     let coords
     navigator.geolocation.getCurrentPosition(position => {
       coords = position.coords
-      dispatch({ type: 'SET_LOCATION', payload: coords })
+      dispatch({ type: 'SET_LOCATION', payload: { longitude: coords.longitude, latitude: coords.latitude } })
     })
   }, [])
 

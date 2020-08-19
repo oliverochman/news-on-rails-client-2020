@@ -1,14 +1,17 @@
 import axios from "axios";
 import ArticleContent from "./ArticleContent";
 import React, { useRef, useEffect, useState } from 'react'
-import {useSelector} from 'react-redux'
+import { useSelector } from 'react-redux'
 
 const Articles = (props) => {
-
   const [articles, setArticles] = useState([])
   const [singleArticle, setSingleArticle] = useState(null)
-  const pathName = props.history.location.pathname
+  const [country, setCountry] = useState(null)
+
   const location = useSelector(state => state.location)
+
+  const pathName = props.history.location.pathname
+  const category = props.match.params.category
 
   useEffect(() => {
     getArticles()
@@ -16,27 +19,36 @@ const Articles = (props) => {
 
 
   useEffect(() => {
-      setSingleArticle(null);
-      getArticles();
+    setSingleArticle(null);
+    getArticles();
   }, [pathName])
 
   const getArticles = async () => {
     let response;
-    let currentPosition 
-    if (props.history.location.pathname === "/") {
+    let currentPosition
+    if (pathName === "/") {
       response = await axios.get(`/articles`);
-    } else if (pathName === 'local') {
-      currentPosition = location || {latitude: 60, longitude: 18}
+
+    } else if (category === 'local') {
+      currentPosition = location || { latitude: 60, longitude: 18 }
+
       response = await axios.get(`/articles`, {
         params: {
-          location: location
+          latitude: currentPosition.latitude,
+          longitude: currentPosition.longitude
         }
-      }); 
+      });
+
+      setCountry(response.data.country)
+
     } else {
       response = await axios.get(`/articles`, {
-        params: props.match.params,
+        params: {
+          category: category
+        }
       });
     }
+
     setArticles(response.data.articles);
   };
 
@@ -60,13 +72,20 @@ const Articles = (props) => {
       />
     );
   } else {
-    content = articles.map((article) => (
-      <ArticleContent
-        article={article}
-        singleArticle={false}
-        getSingleArticle={getSingleArticle}
-      />
-    ));
+    content = (
+      <>
+        {category === "local" && (
+          <p id="current-position">Local News From {country}</p>
+        )}
+        {articles.map((article) => (
+          <ArticleContent
+            article={article}
+            singleArticle={false}
+            getSingleArticle={getSingleArticle}
+          />
+        ))}
+      </>
+    )
   }
   return <div>{content}</div>;
 
