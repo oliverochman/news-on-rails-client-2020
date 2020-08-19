@@ -1,6 +1,5 @@
 const stubLocation = require("../support/stubLocation");
 
-
 describe("visitors can veiw articles ", () => {
   context('based on their based on sweden location', () => {
     before(() => {
@@ -34,6 +33,5 @@ describe("visitors can veiw articles ", () => {
         cy.get("#lead").should("contain", "Sad campers is always a losers");
       });
     });
-
   })
 })
