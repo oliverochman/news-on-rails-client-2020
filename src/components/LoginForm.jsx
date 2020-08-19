@@ -1,6 +1,6 @@
-import React from "react";
-import { Button, Form, Grid, Segment } from "semantic-ui-react";
-import { connect } from "react-redux";
+import React from "./node_modules/react";
+import { Button, Form, Grid, Segment } from "./node_modules/semantic-ui-react";
+import { connect } from "./node_modules/react-redux";
 import auth from "../modules/auth";
 
 const LoginForm = (props) => {

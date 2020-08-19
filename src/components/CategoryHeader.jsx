@@ -1,5 +1,5 @@
-import React from "react";
-import { NavLink, Link } from "react-router-dom";
+import React from "./node_modules/react";
+import { NavLink, Link } from "./node_modules/react-router-dom";
 import LoginButton from "./LoginButton";
 
 const CategoryHeader = () => {
