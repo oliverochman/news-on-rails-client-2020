@@ -1,22 +1,24 @@
-import React, { Component } from "react";
-import Articles from "./Components/Articles";
+import React from "react";
+import { connect } from "react-redux";
 import { Route, Switch } from "react-router-dom";
-import CategoryHeader from './Components/CategoryHeader'
+import Articles from "./components/Articles";
+import CategoryHeader from "./components/CategoryHeader";
+import LoginForm from "./components/LoginForm";
 
-class App extends Component {
-  render() {
-    return (
-      <>
-        <div>
-          <CategoryHeader />
-          <Switch>
-            <Route exact path="/" component={Articles}></Route>
-            <Route exact path="/articles/:category" component={Articles}></Route>
-          </Switch>
-        </div>
-      </>
-    );
-  }
-}
+const App = (props) => {
+  return (
+    <>
+      <CategoryHeader />
+      <Switch>
+        <Route exact path="/" component={Articles}></Route>
+        <Route exact path="/articles/:category" component={Articles}></Route>
+      </Switch>
+      {props.renderLoginForm && <LoginForm />}
+    </>
+  );
+};
+const mapStateToProps = (state) => {
+  return { renderLoginForm: state.renderLoginForm };
+};
 
-export default App;
+export default connect(mapStateToProps)(App);

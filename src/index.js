@@ -5,6 +5,8 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import axios from "axios";
 import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import configureStore from "./state/store/configureStore";
 
 let apiUrl;
 if (process.env.NODE_ENV === "production") {
@@ -14,10 +16,15 @@ if (process.env.NODE_ENV === "production") {
 }
 axios.defaults.baseURL = apiUrl;
 
+const store = configureStore();
+window.store = store;
+
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
+  <Provider store={store}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>,
   document.getElementById("root")
 );
 

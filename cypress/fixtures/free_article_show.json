@@ -1,0 +1,10 @@
+{
+  "article": {
+    "id": 2,
+    "title": "Happy Campers",
+    "lead": "Happy campers is always a winner",
+    "content": "Happy campers sounds awesome and this is the content",
+    "category": "sports",
+    "premium": false
+  }
+}
