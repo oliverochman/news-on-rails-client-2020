@@ -1,68 +1,74 @@
-import React, { Component } from "react";
 import axios from "axios";
 import ArticleContent from "./ArticleContent";
+import React, { useRef, useEffect, useState } from 'react'
+import {useSelector} from 'react-redux'
 
-class Articles extends Component {
-  state = {
-    articles: [],
-    singleArticle: null,
-  };
+const Articles = (props) => {
 
-  componentDidUpdate = (prevProps) => {
-    if (this.props.history.location.pathname !== prevProps.location.pathname) {
-      this.setState({ singleArticle: null });
-      this.getArticles();
-    }
-  };
+  const [articles, setArticles] = useState([])
+  const [singleArticle, setSingleArticle] = useState(null)
+  const pathName = props.history.location.pathname
+  const location = useSelector(state => state.location)
 
-  componentDidMount = () => {
-    this.getArticles();
-  };
+  useEffect(() => {
+    getArticles()
+  }, [])
 
-  getArticles = async () => {
+
+  useEffect(() => {
+      setSingleArticle(null);
+      getArticles();
+  }, [pathName])
+
+  const getArticles = async () => {
     let response;
-    if (this.props.history.location.pathname === "/") {
+    if (props.history.location.pathname === "/") {
       response = await axios.get(`/articles`);
+    } else if (pathName === 'local') {
+      response = await axios.get(`/articles`, {
+        params: {
+          location: location
+        }
+      }); 
     } else {
       response = await axios.get(`/articles`, {
-        params: this.props.match.params,
+        params: props.match.params,
       });
     }
-    this.setState({ articles: response.data.articles });
+    setArticles(response.data.articles);
   };
 
-  getSingleArticle = async (event) => {
+  const getSingleArticle = async (event) => {
     let id = event.target.parentElement.dataset.id;
     let response = await axios.get(`/articles/${id}`);
-    this.setState({ singleArticle: response.data.article });
+    setSingleArticle(response.data.article);
   };
 
-  closeSingleArticle = () => {
-    this.setState({
-      singleArticle: null,
-    });
+  const closeSingleArticle = () => {
+    setSingleArticle(null);
   };
 
-  render() {
-    let articles;
-    if (this.state.singleArticle) {
-      articles = (
-        <ArticleContent
-          article={this.state.singleArticle}
-          singleArticle={true}
-          closeSingleArticle={this.closeSingleArticle}
-        />
-      );
-    } else {
-      articles = this.state.articles.map((article) => (
-        <ArticleContent
-          article={article}
-          singleArticle={false}
-          getSingleArticle={this.getSingleArticle}
-        />
-      ));
-    }
-    return <div>{articles}</div>;
+  let content;
+  if (singleArticle) {
+    content = (
+      <ArticleContent
+        article={singleArticle}
+        singleArticle={true}
+        closeSingleArticle={closeSingleArticle}
+      />
+    );
+  } else {
+    content = articles.map((article) => (
+      <ArticleContent
+        article={article}
+        singleArticle={false}
+        getSingleArticle={getSingleArticle}
+      />
+    ));
   }
+  return <div>{content}</div>;
+
 }
-export default Articles;
+
+export default Articles
+

@@ -5,17 +5,20 @@ import LoginButton from "./LoginButton";
 const CategoryHeader = () => {
   return (
     <div className="category-header">
-      <Link id="header" className="header item" to="/">
+      <NavLink id="header" className="header__item" to="/">
         Home
-      </Link>
-      <NavLink id="economy" to="/articles/economy">
+      </NavLink>
+      <NavLink id="economy" className="header__item" to="/articles/economy">
         Economy
       </NavLink>
-      <NavLink id="lifestyle" to="/articles/lifestyle">
+      <NavLink id="lifestyle" className="header__item" to="/articles/lifestyle">
         Lifestyle
       </NavLink>
-      <NavLink id="sports" to="/articles/sports">
+      <NavLink id="sports" className="header__item" to="/articles/sports">
         Sports
+      </NavLink>
+      <NavLink id="local" className="header__item" to="/articles/local">
+        Local News
       </NavLink>
       <LoginButton id="header-login" />
     </div>

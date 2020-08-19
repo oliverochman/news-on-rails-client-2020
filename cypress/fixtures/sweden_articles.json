@@ -1,0 +1,20 @@
+{
+  "articles": [
+    {
+      "id": 1,
+      "title": "Scrum God",
+      "lead": "God of all coharts",
+      "category": "lifestyle",
+      "premium": true,
+      "location": "Sweden"
+    },
+    {
+      "id": 2,
+      "title": "Sad Campers",
+      "lead": "Sad campers is always a losers",
+      "category": "sports",
+      "premium": false,
+      "location": "Sweden"
+    }
+    ]
+  }
