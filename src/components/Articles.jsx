@@ -1,68 +1,95 @@
-import React, { Component } from "react";
 import axios from "axios";
 import ArticleContent from "./ArticleContent";
+import React, { useRef, useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 
-class Articles extends Component {
-  state = {
-    articles: [],
-    singleArticle: null,
-  };
+const Articles = (props) => {
+  const [articles, setArticles] = useState([])
+  const [singleArticle, setSingleArticle] = useState(null)
+  const [country, setCountry] = useState(null)
 
-  componentDidUpdate = (prevProps) => {
-    if (this.props.history.location.pathname !== prevProps.location.pathname) {
-      this.setState({ singleArticle: null });
-      this.getArticles();
-    }
-  };
+  const location = useSelector(state => state.location)
 
-  componentDidMount = () => {
-    this.getArticles();
-  };
+  const pathName = props.history.location.pathname
+  const category = props.match.params.category
 
-  getArticles = async () => {
+  useEffect(() => {
+    getArticles()
+  }, [])
+
+
+  useEffect(() => {
+    setSingleArticle(null);
+    getArticles();
+  }, [pathName])
+
+  const getArticles = async () => {
     let response;
-    if (this.props.history.location.pathname === "/") {
+    let currentPosition
+    if (pathName === "/") {
       response = await axios.get(`/articles`);
+
+    } else if (category === 'local') {
+      currentPosition = location || { latitude: 60, longitude: 18 }
+
+      response = await axios.get(`/articles`, {
+        params: {
+          latitude: currentPosition.latitude,
+          longitude: currentPosition.longitude
+        }
+      });
+
+      setCountry(response.data.country)
+
     } else {
       response = await axios.get(`/articles`, {
-        params: this.props.match.params,
+        params: {
+          category: category
+        }
       });
     }
-    this.setState({ articles: response.data.articles });
+
+    setArticles(response.data.articles);
   };
 
-  getSingleArticle = async (event) => {
+  const getSingleArticle = async (event) => {
     let id = event.target.parentElement.dataset.id;
     let response = await axios.get(`/articles/${id}`);
-    this.setState({ singleArticle: response.data.article });
+    setSingleArticle(response.data.article);
   };
 
-  closeSingleArticle = () => {
-    this.setState({
-      singleArticle: null,
-    });
+  const closeSingleArticle = () => {
+    setSingleArticle(null);
   };
 
-  render() {
-    let articles;
-    if (this.state.singleArticle) {
-      articles = (
-        <ArticleContent
-          article={this.state.singleArticle}
-          singleArticle={true}
-          closeSingleArticle={this.closeSingleArticle}
-        />
-      );
-    } else {
-      articles = this.state.articles.map((article) => (
-        <ArticleContent
-          article={article}
-          singleArticle={false}
-          getSingleArticle={this.getSingleArticle}
-        />
-      ));
-    }
-    return <div>{articles}</div>;
+  let content;
+  if (singleArticle) {
+    content = (
+      <ArticleContent
+        article={singleArticle}
+        singleArticle={true}
+        closeSingleArticle={closeSingleArticle}
+      />
+    );
+  } else {
+    content = (
+      <>
+        {category === "local" && (
+          <p id="current-position">Local News From {country}</p>
+        )}
+        {articles.map((article) => (
+          <ArticleContent
+            article={article}
+            singleArticle={false}
+            getSingleArticle={getSingleArticle}
+          />
+        ))}
+      </>
+    )
   }
+  return <div>{content}</div>;
+
 }
-export default Articles;
+
+export default Articles
+
