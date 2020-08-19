@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import LoginButton from "./LoginButton";
 import { useTranslation } from "react-i18next";
@@ -7,40 +7,72 @@ import { Menu, Dropdown } from "semantic-ui-react";
 
 const CategoryHeader = () => {
   const { t } = useTranslation();
+  const [activeItem, setActiveItem] = useState("home");
+  const handleTabClick = (e, { name }) => {
+    setActiveItem(name);
+  };
 
   return (
     <Menu className="category-header" widths={9}>
-      <Menu.Item>
+      <Menu.Item
+        name="home"
+        active={activeItem === "home"}
+        onClick={handleTabClick}
+      >
         <Link id="header" className="header item" to="/">
           {t("home-tab")}
         </Link>
       </Menu.Item>
-      <Menu.Item>
+      <Menu.Item
+        name="culture"
+        active={activeItem === "culture"}
+        onClick={handleTabClick}
+      >
         <NavLink id="culture" to="/articles/culture">
           {t("culture-tab")}
         </NavLink>
       </Menu.Item>
-      <Menu.Item>
+      <Menu.Item
+        name="economy"
+        active={activeItem === "economy"}
+        onClick={handleTabClick}
+      >
         <NavLink id="economy" to="/articles/economy">
           {t("economy-tab")}
         </NavLink>
       </Menu.Item>
-      <Menu.Item>
+      <Menu.Item
+        name="international"
+        active={activeItem === "international"}
+        onClick={handleTabClick}
+      >
         <NavLink id="international" to="/articles/international">
           {t("international-tab")}
         </NavLink>
       </Menu.Item>
-      <Menu.Item>
+      <Menu.Item
+        name="lifestyle"
+        active={activeItem === "lifestyle"}
+        onClick={handleTabClick}
+      >
         <NavLink id="lifestyle" to="/articles/lifestyle">
           {t("lifestyle-tab")}
         </NavLink>
       </Menu.Item>
-      <Menu.Item>
+      <Menu.Item
+        name="local"
+        active={activeItem === "local"}
+        onClick={handleTabClick}
+      >
         <NavLink id="local" to="/articles/local">
           {t("local-tab")}
         </NavLink>
       </Menu.Item>
-      <Menu.Item>
+      <Menu.Item
+        name="sports"
+        active={activeItem === "sports"}
+        onClick={handleTabClick}
+      >
         <NavLink id="sports" to="/articles/sports">
           {t("sports-tab")}
         </NavLink>
