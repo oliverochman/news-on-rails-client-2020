@@ -7,6 +7,7 @@ import axios from "axios";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import configureStore from "./state/store/configureStore";
+import "./i18n"
 
 let apiUrl;
 if (process.env.NODE_ENV === "production") {

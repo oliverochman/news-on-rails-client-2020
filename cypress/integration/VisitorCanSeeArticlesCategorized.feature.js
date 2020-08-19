@@ -16,7 +16,7 @@ describe("Vistors can see Articles by Categories", () => {
         url: "http://localhost:3000/api/v1/articles**",
         response: "fixture:economy_index.json",
       });
-      cy.get("#economy").click();
+      cy.get('[href="/articles/economy"]').click();
     });
 
     cy.get(".article-list").should("contain", "Bright Future");
@@ -32,7 +32,7 @@ describe("Vistors can see Articles by Categories", () => {
         url: "http://localhost:3000/api/v1/articles**",
         response: "fixture:lifestyle_index.json",
       });
-      cy.get("#lifestyle").click();
+      cy.get('[href="/articles/lifestyle"]').click();
     });
 
     cy.get(".article-list").should("contain", "Scrum Lord");
@@ -46,7 +46,7 @@ describe("Vistors can see Articles by Categories", () => {
         url: "http://localhost:3000/api/v1/articles**",
         response: "fixture:sports_index.json",
       });
-      cy.get("#sports").click();
+      cy.get('[href="/articles/sports"]').click();
     });
 
     cy.get(".article-list").should("contain", "Happy Campers");
