@@ -6,6 +6,7 @@ import CategoryHeader from "./components/CategoryHeader";
 import LoginForm from "./components/LoginForm";
 import { Header, Icon } from "semantic-ui-react";
 import { useDispatch } from 'react-redux'
+import AccountHeader from "./components/AccountHeader";
 
 const App = (props) => {
   const dispatch = useDispatch()
@@ -25,9 +26,11 @@ const App = (props) => {
           News on Rails
         </Header>
         <CategoryHeader />
+        <AccountHeader/>
         <Switch>
           <Route exact path="/" component={Articles}></Route>
           <Route exact path="/articles/:category" component={Articles}></Route>
+          <Route exact path="/subscription" component={Subscription}></Route>
         </Switch>
         {props.renderLoginForm && <LoginForm />}
       </Suspense>
