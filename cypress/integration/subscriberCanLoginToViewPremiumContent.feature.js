@@ -71,6 +71,7 @@ describe("subscriber can", () => {
       });
     });
   });
+  
   context("unsuccessfully", () => {
     beforeEach(() => {
       cy.server();

@@ -56,5 +56,7 @@ describe("user can become subscriber", () => {
     cy.get("#submit-payment").click()
 
     cy.get("#payment-message").should("contain", "Successful payment, you are now a subscriber")
+    cy.get("#back-to-root-path").click()
+    cy.url().should('eq', 'http://localhost:3001')
   })
 })
