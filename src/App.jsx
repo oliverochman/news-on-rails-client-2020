@@ -7,6 +7,9 @@ import LoginForm from "./components/LoginForm";
 import { Header, Icon } from "semantic-ui-react";
 import { useDispatch } from 'react-redux'
 import AccountHeader from "./components/AccountHeader";
+import Subscription from "./components/Subscription";
+import { Elements } from "react-stripe-elements"
+
 
 const App = (props) => {
   const dispatch = useDispatch()
@@ -30,7 +33,9 @@ const App = (props) => {
         <Switch>
           <Route exact path="/" component={Articles}></Route>
           <Route exact path="/articles/:category" component={Articles}></Route>
-          <Route exact path="/subscription" component={Subscription}></Route>
+          <Elements>
+            <Route exact path="/subscription" component={Subscription}></Route>
+          </Elements>
         </Switch>
         {props.renderLoginForm && <LoginForm />}
       </Suspense>

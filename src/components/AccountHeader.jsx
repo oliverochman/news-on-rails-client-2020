@@ -16,6 +16,7 @@ const AccountHeader = () => {
         name="subscription"
         as={Link}
         to={{ pathname: "/subscription" }}
+        id="become-subscriber"
       >
         Become Subscriber
       </Menu.Item>
